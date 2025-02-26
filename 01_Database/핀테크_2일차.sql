@@ -241,4 +241,3 @@ rollback; -- Rollback 되지 않음 : 다시 공부해보기 -> AUTO_COMMIT = 1 
 
 
 
-
