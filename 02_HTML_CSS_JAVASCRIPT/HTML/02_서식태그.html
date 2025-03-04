@@ -1,0 +1,131 @@
+<!-- 서버로 홈페이지 확인 : Ait + L + O -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02_서식태그</title>
+  </head>
+  <body>
+    <!-- 제목 태그 (h1 > ~ > h6) -->
+    <h1>제목1</h1>
+    <h2>제목2</h2>
+    <h3>제목3</h3>
+    <h4>제목4</h4>
+    <h5>제목5</h5>
+    <h6>제목6</h6>
+
+    <!-- 내용 태그 : p(paragraph) 문단-->
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+      accusamus quo, tempore laudantium voluptatum debitis eos dolorum repellat
+      dolor distinctio ducimus repudiandae voluptate veritatis placeat
+      exercitationem non tempora quam omnis. Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Reiciendis accusamus quo, tempore laudantium
+      voluptatum debitis eos dolorum repellat dolor distinctio ducimus
+      repudiandae voluptate veritatis placeat exercitationem non tempora quam
+      omnis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+      accusamus quo, tempore laudantium voluptatum debitis eos dolorum repellat
+      dolor distinctio ducimus repudiandae voluptate veritatis placeat
+      exercitationem non tempora quam omnis. Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. Reiciendis accusamus quo, tempore laudantium
+      voluptatum debitis eos dolorum repellat dolor distinctio ducimus
+      repudiandae voluptate veritatis placeat exercitationem non tempora quam
+      omnis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+      accusamus quo, tempore laudantium voluptatum debitis eos dolorum repellat
+      dolor distinctio ducimus repudiandae voluptate veritatis placeat
+      exercitationem non tempora quam omnis.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ratione
+      quo perferendis rem soluta beatae, nihil vero. Error, nam. A possimus
+      laboriosam nemo laudantium consequuntur, minus unde quidem hic
+      necessitatibus!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero repellendus
+      recusandae dolor in eveniet quibusdam aliquam temporibus et porro! Illo,
+      aliquam accusamus dolores saepe laboriosam laborum facere labore sed
+      doloribus.
+    </p>
+    <p>Lorem ipsum dolor sit amet</p>
+
+    <!-- 콘텐츠를 그룹화 하는 태그 : div -->
+    <div>
+      <p>요리</p>
+    </div>
+    <div>
+      <p>날씨</p>
+    </div>
+
+    <!-- 영역 나누기 실습 수행 -->
+    <hr />
+    <div>
+      <h1>Lorem ipsum dolor sit amet.</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam facere ex
+        architecto quo atque unde voluptatibus voluptatem consectetur suscipit
+        repellendus, illum nobis. Aliquid consequatur a aut autem porro dicta
+        sit!
+      </p>
+      <h2>Lorem, ipsum dolor.</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt ipsum
+        explicabo beatae! Ut sunt sequi beatae nam mollitia excepturi culpa hic
+        dignissimos quisquam labore. Aliquid accusamus tempora itaque delectus
+        eius.
+      </p>
+    </div>
+
+    <!-- strong, em 태그 : 특정 문장이나 단어를 강조하고 싶을 때 사용 -->
+    <strong>강조할 문장1_strong</strong>
+    <em>강조할 문장2_em</em>
+
+    <b>강조할 문장_b</b>
+    <i>강조할 문장_i</i>
+
+    <hr />
+
+    <!-- 웹페이지에 링크 걸기 : a -->
+    <a href="https://www.naver.com">네이버</a>
+
+    <!-- a 태그의 속성 target -->
+    <a href="https://www.naver.com" target="_blank">네이버 새창열기</a>
+
+    <hr />
+
+    <!-- span 인라인 요소 태그 그룹화 하기 -->
+    <!-- 태그의 종류 - 인라인 요소, 블록 요소 -->
+    <!-- 인라인 요소 : 내용을 추가하면 옆으로 이어져서 생성 -->
+    <!-- 블록 요소 : 내용을 추가하면 아래쪽으로 공간이 분리되어 생성 -->
+    <p>블록요소 1</p>
+    <p>블록요소 2</p>
+    <div>
+      <strong>인라인 요소 1</strong>
+    </div>
+    <em>인라인 요소 2</em>
+    <a href="https://daum.net">다음 인라인 요소 3</a>
+
+    <p>
+      span 태그는 <span><strong>인라인 요소</strong></span> 안에서 그룹화하는
+      태그 입니다.
+    </p>
+
+    <hr />
+
+    <!-- 이미지 넣기 img-->
+    <img src="img/너구리사진.jfif" alt="너구리" />
+
+    <!-- 이미지를 시맨틱 태그를 이용해 넣기 -->
+    <figure>
+      <img src="img/너구리사진.jfif" alt="너구리" />
+    </figure>
+    <figcaption>너구리가 두 손을 모으고 쳐다보고 있는 사진</figcaption>
+
+    <!-- br 태그 : 강제 줄 바꿈 -->
+    <strong>강조할 문장 1</strong><br />
+    <em>강조할 문장 2</em><br />
+    <b>강조할 문장 3</b><br />
+    <i>강조할 문장 4</i>
+  </body>
+</html>
