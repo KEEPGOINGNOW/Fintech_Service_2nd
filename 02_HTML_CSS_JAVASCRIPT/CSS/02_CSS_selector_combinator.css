@@ -1,0 +1,160 @@
+
+/* 복합 셀렉터 combinator */
+/* 부모자식 조상자손 */
+
+/* 후손 셀렉터 */
+/* 셀렉터A 셀렉터B : div p */
+
+
+div p {
+    color: red;
+}
+
+/* 자식 셀렉터 child combinator */
+/* 셀렉터A > 셀렉터B */
+/*  부모 > 자식 */
+
+
+div > p {
+    color: black;
+}
+
+
+span > p {
+    color: brown;
+}
+
+/* 같은 레벨의 형제 관계 */
+/* 형제(동위) 셀렉터 sibling combinator */
+/* 형제 관계에서 뒤에 위치하는 요소를 선택할 때 사용 */
+
+/* 인접 형제 셀렉터 (셀렉터A + 셀렉터B) : 셀렉터A의 형제 요소 중 
+셀렉터A의 바로 뒤에 위치하는 셀렉터B 요소를 선택, 
+A와 B사이에 다른 요소가 존재하면 선택되지 않는다 */
+
+/* 사이에 <a> 생성 : 색이 변하지 않음 */
+p + ul {
+    color: red;
+}
+
+/* 일반 형제 셀렉터 (셀렉터A ~ 셀렉터B) : 셀렉터A의 형제 요소 중 뒤에 위치하는
+셀렉터B 요소를 모두 선택 */
+
+/* span ~ ul {
+    color: green;
+} */
+
+/* 가상 클래스 셀렉터 Pseudo-class selector */
+/* 요소의 특정 상태에 따라 스타일을 정의할 때 사용 */
+/* 특정 상태? : 마우스가 올라와 있을 때, 링크에 방문했을 때와 아직 방문하지 않았을 때,
+포커스가 들어왔을 때 */
+
+
+a:hover {
+    background-color: red;
+}
+
+
+input:focus {
+    background-color: yellow;
+
+}
+
+/* 링크 셀렉터 */
+/* :link 셀렉터가 방문하지 않은 링크일 때 
+    :visited 셀렉터가 방문한 링크일 때 
+    :hover 셀렉터에 마우스가 올라와 있을 때
+    :active 셀렉터가 클릭된 상태일 때 
+    :focus 셀렉터가 포커스에 들어와 있을 때
+*/
+
+
+a:link {
+    color: orange;
+}
+
+
+a:visited {
+    color: green;
+}
+
+
+a:active {
+    font-weight: bold;
+}
+
+
+input[type="text"]:focus {
+    color: red;
+}
+
+
+input[type="password"]:focus {
+    color: black;
+}
+
+
+/* 구조 가상 클래스 셀렉터 */
+/* :first-child - 셀렛터에 해당하는 모든 요소 중 첫번째 자식인 요소를 선택 */
+/* :last-child - 셀렛터에 해당하는 모든 요소 중 마지막 자식인 요소를 선택 */
+
+
+p:first-child {
+    color: red;
+}
+
+
+p:last-child {
+    color: blue;
+}
+
+
+/* :nth-child(n), :nth-last-child(n) */
+/* :nth-child(n) - 셀렉터에 해당하는 모든 요소 중 앞에서 n번째 자식인 요소를 선택 */
+/* :nth-last-child(n) - 셀렉터에 해당하는 모든 요소 중 뒤에서 n번째 자식인 요소를 선택 */
+/* n은 0부터 시작 */
+
+
+/* ol 요소의 자식 요소인 li요소 중 짝수 번째 요솜만을 선택 */
+ol > li:nth-child(2n) {
+    color: orange;
+}
+
+
+/* ol의 li 중에서 홀수 번째 요소만 선택 */
+ol > li:nth-child(2n+1) {
+    color: green;
+}
+
+
+/* ol의 li 중에서 첫번째 요소만 선택 */
+ol > li:first-child {
+    color: red;
+}
+
+
+/* ol의 li 중에서 마지막 요소만 선택 */
+ol > li:last-child {
+    color: blue;
+}
+
+
+/* ol의 li 중에서 4번째 요소만 선택 */
+ol > li:nth-child(4) {
+    background-color: brown;
+}
+
+
+/* ul의 모든 자식 요소 중에서 뒤에서부터 홀수번째 요소만 선택 */
+ul > :nth-last-child(2n+1) {
+    color: red;
+
+}
+
+
+/* ul의 모든 자식 요소 중에서 뒤에서부터 짝수 번째 요소만 선택 */
+ul > :nth-last-child(2n) {
+    color: blue;
+}
+
+

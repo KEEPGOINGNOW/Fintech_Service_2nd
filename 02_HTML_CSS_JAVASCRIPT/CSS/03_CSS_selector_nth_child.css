@@ -1,0 +1,80 @@
+
+/* :first-of-type : 셀렉터에 해당하는 요소의 부모 요소 중 첫번째 등장하는 요소 선택 */
+/* :last-of-type : 셀렉터에 해당하는 요소의 부모 요소의 자식 요소 중 마지막에 등장하는 요소 선택 */
+/* :nth-of-type(n) : 셀렉터에 해당하는 요소의 부모 요소의 자식 요소 중 앞에서 n번째 등장하는 요소 선택 */
+/* :nth-last-of-type(n) : 셀렉터에 해당하는 요소의 부모 요소의 자식 요소 중 뒤에서 n번째 등장하는 요소 선택*/
+
+
+/* p의 부모의 자식 중 첫번째 등장하는 p의 요소 선택 */
+
+p:first-of-type {
+    color: red;
+}
+
+
+/* p의 부모의 자식 중 마지막에 등장하는 p의 요소 선택 */
+p:last-of-type {
+    color: blue;
+}
+
+
+/* p의 부모의 자식 중 앞에서 2번째 등장하는 p의 요소 선택 */
+p:nth-of-type(2) {
+    color: green;
+}
+
+
+/* p의 부모의 자식 중 뒤에서 2번째 등장하는 p의 요소 선택 */
+p:nth-last-of-type(2) {
+    color: orange;
+}
+
+
+/* 정합성 체크 셀렉터 : 입력받은 내용이 적합할 때 인증에 성공한 input 요소 또는 form요소 선택 */
+/* :valid, :invalid */
+
+input[type="text"]:valid {
+    background-color: greenyellow;
+}
+
+input[type="text"]:invalid {
+    background-color: red;
+}
+
+/* 가상 요소 셀렉터 */
+/* ::first-letter - 콘텐츠의 첫글자를 선택 */
+/* ::first-line - 콘텐츠의 첫줄을 선택, 블록 요소만 적용 가능 */
+/* ::after - 콘텐츠의 뒤에 위치하는 공간을 위해 */
+/* ::before - 콘텐츠의 앞에 위치하는 공간을 위해 */
+/* ::selection - 드래그한 콘텐츠를 선택 safari 등에서는 작동하지 않음 */
+
+
+.beforafter > p::first-letter {
+    font-size: 3em;
+
+}
+
+
+.beforafter > p::first-line {
+    color: red;
+}
+
+
+/* h1 요소의 콘텐츠 앞 공간에 content 속성의 값 삽입 */
+.beforafter > h1::before {
+    content: "HTML!!";
+    color: blue;
+}
+
+
+/* h1 요소의 콘텐츠 뒤 공간에 content 속성의 값 삽입 */
+.beforafter > h1::after {
+    content: "CSS3!!";
+    color: red;
+}
+
+.beforafter > ::selection {
+    color: red;
+    background-color: yellow;
+}
+

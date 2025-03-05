@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/02_CSS_selector_combinator.css" />
+    <title>08_CSS_셀렉터_복합 셀렉터</title>
+  </head>
+  <body>
+    <h1>후손요소 div p</h1>
+
+    <div>
+      <p>후손요소 1</p>
+      <p>후손요소 2</p>
+      <span>
+        <p>후손요소 3</p>
+      </span>
+    </div>
+    <!-- div와 형제관계이므로 변하지 않음 -->
+    <p>후손요소 4</p>
+
+    <hr />
+
+    <div>
+      <h1>인접 형제 셀렉터</h1>
+
+      <p>The first paragraph</p>
+      <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ul>
+
+      <span>The span element</span><br />
+      <a href="#">무제링크</a>
+      <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ul>
+
+      <h2>Another list</h2>
+      <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ul>
+
+      <h3>Another list2</h3>
+      <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ul>
+
+      <hr />
+
+      <h1>가상 클래스 셀렉터</h1>
+
+      <a href="#">Hover me</a><br /><br />
+      <input type="text" placeholder="focus me" />
+      <input type="text" value="포커스가 들어오면 빨간 색으로 변해요" />
+      <input type="password" value="포커스가 들어오면 녹색으로 변해요" />
+
+      <hr />
+
+      <h1>구조 가상 클래스 셀렉터 first-child, last-child</h1>
+      <div>
+        <p>div의 1번째 자식_This paragraph is the first child of its parents</p>
+        <h1>Welcome to My Homepage</h1>
+        <p>div의 2번째 자식_This paragraph is the first child of its parents</p>
+
+        <div>
+          <p>
+            안쪽 div의 1번째 자식_This paragraph is the first child of its
+            parents
+          </p>
+          <p>
+            안쪽 div의 막내 자식_This paragraph is not the first child of its
+            parents
+          </p>
+        </div>
+        <p>
+          div의 막내 자식_This paragraph is not the first child of its parents
+        </p>
+      </div>
+
+      <hr />
+
+      <h1>셀렉터:nth-child(n), 셀릭티터:nth-last-child(n)</h1>
+
+      <ol>
+        <li>에스프레소</li>
+        <li>아메리카노</li>
+        <li>카페 라떼</li>
+        <li>카페 모카</li>
+        <li>카라멜 라떼</li>
+        <li>카푸치노</li>
+      </ol>
+
+      <ul>
+        <li>에스프레소</li>
+        <li>아메리카노</li>
+        <li>카페 라떼</li>
+        <li>카페 모카</li>
+        <li>카라멜 라떼</li>
+        <li>카푸치노</li>
+      </ul>
+    </div>
+  </body>
+</html>
