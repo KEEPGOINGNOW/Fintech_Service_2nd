@@ -1,0 +1,289 @@
+/* 1. 아이디 main-title인 요소를 가운데 정렬 */
+/* 정답 */
+#main-title {
+    text-align: center;
+}
+
+
+/* 2. 클래스 navbar 안의 <a> 태그 글자색을 파란색으로 설정 */
+/* 정답 */
+.navbar a {
+    color: blue;
+}
+
+
+/* 3. 클래스 container 안의 모든 <h2> 태그 글자 크기를 22px로 설정 */
+/* 정답 */
+.container h2 {
+    font-size: 22px;
+}
+
+
+/* 4. 클래스 highlight가 있는 요소들의 글자색을 빨간색으로 설정 */
+/* 정답 : 이영희도 빨간색으로 변하는 이유는 div가 감싸고 있기 때문*/
+.highlight {
+    color: red;
+}
+
+
+/* 5. <header> 안의 모든 <li> 글자 크기를 18px로 설정 */
+/* 정답 */
+header li {
+    font-size: 18px;
+}
+
+
+/* 6. 클래스 service-list 안 첫 번째 <li>를 가운데 정렬 */
+/* > 제외한 것이 정답 */
+.service-list li:first-child {
+    text-align: center;
+}
+
+
+/* 7. 클래스 review 안 <h3> 태그 글자색을 초록색으로 설정 */
+/* 정답 */
+.review h3 {
+    color: green;
+}
+
+
+/* 8. <aside> 안의 <h2> 태그를 오른쪽 정렬 */
+/* >  들어가야 정답 */
+/* 중간에 존재하는 다른 것들이 다 선택됨(> 있어야 하는 이유) */
+aside > h2 {
+    text-align: right;
+}
+
+
+/* 9. 클래스 notice-list의 마지막 <li> 글자색을 주황색으로 설정 */
+/* 정답 */
+.notice-list li:last-child {
+    color: orange;
+}
+
+
+/* 10. 클래스 notice-list 두 번째 <li> 글자 크기를 20px로 설정 */
+/* > 없어야 정답 */
+.notice-list li:nth-child(2) {
+    font-size: 20px;
+}
+
+
+/* 11. 클래스 review의 첫 번째 <p> 글자색을 보라색으로 설정 */
+/* .클래스명:first-of-type p 형식 : review 클래스의 첫번째 요소의 p형식 선택 */
+.review:first-of-type p {
+    color: purple;
+}
+
+
+/* 12. <footer> 안 <a> 태그 글자색을 초록색으로 설정 */
+/* > 있어야 정답 */
+footer > a {
+    color: green;
+}
+
+
+/* 13. target="_blank" 속성이 있는 <a> 태그를 가운데 정렬 */
+/* a [] : 띄어쓰기 신경쓰기 */
+a [target="_blank"] {
+    text-align: center;
+}
+
+
+/* 14. 모든 <button> 태그 글자 크기를 16px로 설정 */
+/* 정답 */
+button {
+    font-size: 16px;
+}
+
+
+/* 15. 버튼에 마우스를 올렸을 때 글자색을 회색으로 설정 */
+/* 구분이 잘 안되서 yellow 적용 */
+/* 정답 */
+button:hover {
+    color: yellow;
+}
+
+
+/* 16. 클래스 intro 바로 다음에 오는 <article> 글자 크기를 24px로 설정 */
+/* 정답(동위 관계 확인) */
+.intro + article {
+    font-size: 24px;
+}
+
+
+/* 17. <section> 안 <h2> 태그들을 가운데 정렬 */
+/* 정답 */
+section h2 {
+    text-align: center;
+}
+
+
+/* 18. 클래스 review 중 마지막 요소 글자색을 핑크색으로 설정 */
+/* 정답 */
+.review:last-child {
+    color: pink;
+}
+
+
+/* 19. 클래스 service-list 세 번째 <li> 글자색을 빨간색으로 설정 */
+/* 정답 */
+.service-list li:nth-child(3) {
+    color: red;
+}
+
+/* span 넣어서 확인 -> 2025-03-06 수업내용*/
+span.red {
+    color: red;
+} 
+
+
+
+/* 20. <nav> 안 마지막 <li>를 오른쪽 정렬 */
+/* ul을 없애야 정답 */
+nav li:last-child {
+    text-align: right;
+}
+
+
+/* 21. 모든 <article> 태그 글자 크기를 20px로 설정 */
+/* 정답 */
+article {
+    font-size: 20px;
+}
+
+
+/* 22. <aside> 안 첫 번째 <li> 글자색을 파란색으로 설정 */
+/* 정답 */
+aside li:first-child {
+    color: blue;
+}
+
+
+/* 23. <header> 안 <h1> 태그 글자색을 보라색으로 설정 */
+/* > 넣어야 정답 */
+header > h1 {
+    color: purple;
+}
+
+
+/* 24. 클래스 services 안 <ul> 글자를 왼쪽 정렬 */
+/* 부모자식 관계이므로 > 입력되어야 정답*/
+/* 선택자에서 우선순위가 정해지기 때문에 웹 디자인은 적용되지 X */
+.services > ul {
+    text-align: left;
+}
+
+
+/* 25. <footer> 안 <p> 글자 크기를 12px로 설정 */
+/* > 있어야 정답 */
+footer > p {
+    font-size: 12px;
+}
+
+
+/* 26. 모든 <h3> 태그 글자색을 파란색으로 설정 */
+/* 정답 */
+/* 부모자식 관계가 더 우선순위가 높아서 홍길동, 김철수, 이영희 등이 적용되지 X */
+h3 {
+    color: blue;
+}
+
+
+/* 27. 클래스 notice-list 안 홀수 번째 <li> 글자색을 초록색으로 설정 */
+/* 정답 */
+.notice-list li:nth-child(2n+1) {
+    color: green;
+}
+
+
+/* 28. 클래스 notice-list 안 짝수 번째 <li> 글자색을 주황색으로 설정 */
+/* 정답 */
+.notice-list li:nth-child(2n) {
+    color: orange;
+}
+
+
+/* 29. 모든 <section> 안 <p> 태그 글자 크기를 16px로 설정 */
+/* 정답 (자손관계)*/
+section p {
+    font-size: 16px;
+}
+
+
+/* 30. <article> 안 첫 번째 <p> 글자색을 빨간색으로 설정 */
+/* 정답 -> :first-child로 적용이 안되면 :first-of-type으로 시도해보기 */
+article p:first-of-type {
+    color: red;
+}
+
+
+/* 31. <nav> 안 <a> 태그에 마우스를 올렸을 때 글자색을 초록색으로 설정 */
+/* 정답 */
+
+nav a:hover {
+    color: green;
+}
+
+
+/* 32. <button>에 마우스를 올렸을 때 글자 크기를 18px로 설정 */
+/* 정답 */
+button:hover {
+    font-size: 18px;
+}
+
+
+/* 33. 클래스 review 안 첫 번째 <h3> 글자 크기를 24px로 설정 */
+/* .review:first-of-type h3 적용되어야 정답 */
+.review:first-of-type h3 {
+    font-size: 24px;
+}
+
+
+/* 34. <article> 태그 중 첫 번째 요소 글자색을 보라색으로 설정 */
+/* 일단 넘어가기 */
+article:first-of-type {
+    color: purple;
+}
+
+
+/* 35. 클래스 service-list 마지막 <li> 글자 크기를 18px로 설정 */
+/* 정답 */
+.service-list li:last-child {
+    font-size: 18px;
+}
+
+
+/* 36. 클래스 intro 안 <p> 태그 글자색을 초록색으로 설정 */
+/* > 있어야 정답 */
+.intro > p {
+    color: green;
+}
+
+
+/* 37. 클래스 services 안 <h2> 태그 글자 크기를 20px로 설정 */
+/* 클래스 자식 관계(> 삽입) 정답  */
+.services > h2 {
+    font-size: 20px;
+}
+
+
+/* 38. <footer> 안 <a> 태그에 마우스를 올렸을 때 글자색을 빨간색으로 설정 */
+/* 정답 */
+footer a:hover {
+    color: red;
+}
+
+
+/* 39. 클래스 reviews 안 마지막 <div> 글자 크기를 22px로 설정 */
+/* 정답  */
+.reviews div:last-of-type {
+    font-size: 22px;
+}
+
+
+/* 40. 클래스 navbar 안 첫 번째 <li> 글자색을 주황색으로 설정 */
+/* 정답 */
+.navbar li:first-child {
+    color: orange;
+}

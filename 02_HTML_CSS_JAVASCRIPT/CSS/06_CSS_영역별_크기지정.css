@@ -1,0 +1,175 @@
+
+/* 너비와 높이 지정하기 */
+/* width, height */
+/* px : 너비값과 높잇값을 px 단위로 지정 */
+/* % : 부모 태그를 기준으로 너빗값과 높잇값을 % 단위로 지정 */
+/* vw : 웹브라우저의 너비를 기준으로 너비값과 높잇값을 백분율로 지정 */
+/* vh : 웹브라우저의 높이를 기준으로 너비값과 높잇값을 백분율로 지정 */
+
+.width_p {
+    border: 1px solid blue;
+}
+
+.width_height {
+    border: 1px solid red;
+    width: 50%;
+}
+.width_height article {
+    border: 1px solid black
+}
+
+.width_height article:nth-child(1) {
+    width: 100px;
+    height: 100px;
+}
+
+.width_height article:nth-child(2) {
+    width: 20%;
+    height: 20%;
+}
+
+.width_height article:nth-child(3) {
+    width: 10vw;
+    height: 10vw;
+}
+
+.width_height article:nth-child(4) {
+    width: 10vh;
+    height: 10vh;
+}
+
+/*  margin :바깥쪽 여백 지정 */
+
+.margin {
+    border: 1px solid red;
+}
+
+.margin div {
+    width: 50px;
+    height: 30px;
+    border: 1px solid blue;
+}
+
+/* 상하좌우 margin 20px */
+.margin div:nth-child(1) {
+    margin: 20px;
+}
+
+/* 상하는 20px, 좌우는 50px */
+.margin div:nth-child(2) {
+    margin: 20px 50px;
+}
+
+/* 상하는 20px,  좌우는 자동(박스 요소를 중앙 정렬) */
+.margin div:nth-child(3) {
+    margin: 20px auto;
+}
+
+/* 위쪽 20px, 좌우는 중앙 아래쪽은 40px */
+.margin div:nth-child(4) {
+    margin: 20px auto 40px;
+    text-align: center;
+}
+
+/* 위쪽, 오른쪽, 아래쪽, 왼쪽  */
+.margin div:nth-child(5) {
+    margin: 0px, 10px, 20px, 30px;
+    text-align: center;
+}
+
+/* margin-방향 */
+.margin div:nth-child(6) {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.margin div:nth-child(7) {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.margin div:nth-child(8) {
+    margin-left: 20px;
+    text-align: center;
+}
+
+.margin div:nth-child(9) {
+    margin-right: 20px;
+    text-align: center;
+}
+
+/* 안쪽 여백 지정 */
+
+div.padding {
+    border: 1px solid red;
+}
+
+div.padding div {
+    width: 100px;
+    height: 100px;
+    border: 1px solid blue 
+}
+
+.padding div:first-child {
+    padding: 0px;
+}
+
+.padding div:last-child {
+    padding: 30px;
+}
+
+/* 안쪽 여백 지정하기 padding2 유지 */
+
+div.padding2 {
+    border: 1px solid red;
+}
+
+div.padding2 div {
+    width: 100px;
+    height: 100px;
+    border: 1px solid blue 
+}
+
+.padding2 div:first-child {
+    padding: 0px;
+}
+
+.padding2 div:last-child {
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/*  */
+
+div.line_type {
+    border: 1px solid red;
+}
+
+div.line_type div {
+    width: 300px;
+    height: 200px;
+    margin: 50px;
+    border: 1px solid blue 
+}
+
+div.line_type div:nth-child(1) {
+    border-width: 1px;
+    border-style: solid;
+    border-color: red;
+}
+
+div.line_type div:nth-child(2) {
+    border-width: 1px;
+    border-style: dashed;
+    border-color: green;
+}
+
+div.line_type div:nth-child(3) {
+    border-width: 10px;
+    border-style: dotted;
+    border-color: blue;
+}
+
+div.line_type div:nth-child(4) {
+    border: 10px double blue;
+}
