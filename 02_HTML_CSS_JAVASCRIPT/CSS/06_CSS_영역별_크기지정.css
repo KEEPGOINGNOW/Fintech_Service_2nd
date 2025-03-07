@@ -139,7 +139,7 @@ div.padding2 div {
     box-sizing: border-box;
 }
 
-/*  */
+/* 테두리의 형태 지정 */
 
 div.line_type {
     border: 1px solid red;
