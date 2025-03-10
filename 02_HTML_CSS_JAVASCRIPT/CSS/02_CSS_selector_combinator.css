@@ -90,13 +90,13 @@ input[type="text"]:focus {
 
 
 input[type="password"]:focus {
-    color: black;
+    color: green;
 }
 
 
 /* 구조 가상 클래스 셀렉터 */
-/* :first-child - 셀렛터에 해당하는 모든 요소 중 첫번째 자식인 요소를 선택 */
-/* :last-child - 셀렛터에 해당하는 모든 요소 중 마지막 자식인 요소를 선택 */
+/* :first-child - 셀렉터에 해당하는 모든 요소 중 첫번째 자식인 요소를 선택 */
+/* :last-child - 셀렉터에 해당하는 모든 요소 중 마지막 자식인 요소를 선택 */
 
 
 p:first-child {

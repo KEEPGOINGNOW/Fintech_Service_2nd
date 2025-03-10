@@ -80,11 +80,11 @@ html {
 /* 폰트 모양 바꾸기 */
 
 .font_type li {
-    font-size: 40px;
+    font-family: "돋움";
 }
 
 .font_type li:nth-of-type(1) {
-    font-family: "돋움";
+    font-family: "굴림";
 }
 
 .font_type li:nth-of-type(3) {
@@ -167,6 +167,9 @@ Get font -> Get embed code -> Web -> @import -> html코드 카피해서 title �
 /* 텍스트 정렬 방향 지정 */
 /*  text-align */
 /* left, right, center, justify */
+.align {
+    width: 200px; /* 폭 제한으로 justify 효과 확인 */
+  }
 
 .align p {
     border: 1px solid black
