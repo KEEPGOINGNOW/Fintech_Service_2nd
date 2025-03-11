@@ -146,9 +146,9 @@
     display: grid;
     border: 1px solid black;
     grid-template-areas: 
-        "header header sidebar"
-        "content content content"
-        "footer footer header"
+        "header header header sidebar"
+        "content content content sidebar"
+        "footer footer footer sidebar"
     ;
     row-gap: 10px;
     column-gap: 10px;

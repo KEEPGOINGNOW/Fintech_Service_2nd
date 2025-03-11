@@ -21,7 +21,9 @@ a {
     width: 200px;
     height: 200px;
     margin: 50px;
-    background-color: aqua;
+    color: white;
+    font-weight: bold;
+    background-color: blue;
     transition: 0.3s;
     line-height: 200px;
     text-align: center;
