@@ -1,2 +1,1 @@
-"# Fintech_Service_2nd" 
-"# Fintech_Service_2nd" 
+# 핀테크 서비스 기획자 과정 2회차
