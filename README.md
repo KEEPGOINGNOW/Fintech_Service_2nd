@@ -38,3 +38,4 @@
 7. [파이썬_파이썬 딕셔너리(dict)와 딕셔너리 함수 활용](https://everyonelove.tistory.com/168)
 8. [파이썬_파이썬 서식지정자와 format 메서드 및 f-sting 활용](https://everyonelove.tistory.com/169)
 9. [파이썬_파이썬 if else 조건문과 elif 다중 조건문, 조건표현식](https://everyonelove.tistory.com/171)
+10. [파이썬_파이썬 for 반복문과 enumerate(), continue, break](https://everyonelove.tistory.com/175)
