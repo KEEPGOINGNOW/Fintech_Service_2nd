@@ -1,0 +1,202 @@
+[
+    {
+        "ForNum": 52341,
+        "NatNum": 87234,
+        "addrCd": 1101,
+        "gungu": "강북구",
+        "resNm": "북스타랜드",
+        "rnum": 1,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 1200,
+        "NatNum": 15432,
+        "addrCd": 1102,
+        "gungu": "도봉구",
+        "resNm": "도봉드림파크",
+        "rnum": 2,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 98765,
+        "NatNum": 198543,
+        "addrCd": 1103,
+        "gungu": "동대문구",
+        "resNm": "이스트어드벤처",
+        "rnum": 3,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 2450,
+        "NatNum": 32145,
+        "addrCd": 1104,
+        "gungu": "관악구",
+        "resNm": "관악매직월드",
+        "rnum": 4,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 15432,
+        "NatNum": 27654,
+        "addrCd": 1105,
+        "gungu": "금천구",
+        "resNm": "골든조이랜드",
+        "rnum": 5,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 0,
+        "NatNum": 254321,
+        "addrCd": 1106,
+        "gungu": "영등포구",
+        "resNm": "여의도원더파크",
+        "rnum": 6,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 875,
+        "NatNum": 67432,
+        "addrCd": 1107,
+        "gungu": "양천구",
+        "resNm": "양평스릴타운",
+        "rnum": 7,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 43210,
+        "NatNum": 76543,
+        "addrCd": 1108,
+        "gungu": "구로구",
+        "resNm": "구로펀월드",
+        "rnum": 8,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 0,
+        "NatNum": 54321,
+        "addrCd": 1109,
+        "gungu": "동작구",
+        "resNm": "사당어드벤처파크",
+        "rnum": 9,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 654,
+        "NatNum": 2345,
+        "addrCd": 1110,
+        "gungu": "은평구",
+        "resNm": "은빛플레이랜드",
+        "rnum": 10,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 3421,
+        "NatNum": 18765,
+        "addrCd": 1111,
+        "gungu": "종로구",
+        "resNm": "청운드림랜드",
+        "rnum": 11,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 76543,
+        "NatNum": 123456,
+        "addrCd": 1112,
+        "gungu": "중구",
+        "resNm": "남산매직파크",
+        "rnum": 12,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 2345,
+        "NatNum": 87654,
+        "addrCd": 1113,
+        "gungu": "용산구",
+        "resNm": "용산스페이스월드",
+        "rnum": 13,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 0,
+        "NatNum": 43210,
+        "addrCd": 1114,
+        "gungu": "성동구",
+        "resNm": "한양조이파크",
+        "rnum": 14,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 5432,
+        "NatNum": 9876,
+        "addrCd": 1115,
+        "gungu": "광진구",
+        "resNm": "광진펀랜드",
+        "rnum": 15,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 87654,
+        "NatNum": 345678,
+        "addrCd": 1116,
+        "gungu": "송파구",
+        "resNm": "석촌원더월드",
+        "rnum": 16,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 1234,
+        "NatNum": 5678,
+        "addrCd": 1117,
+        "gungu": "강남구",
+        "resNm": "강남스릴파크",
+        "rnum": 17,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 9876,
+        "NatNum": 43210,
+        "addrCd": 1118,
+        "gungu": "서초구",
+        "resNm": "반포어드벤처랜드",
+        "rnum": 18,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 0,
+        "NatNum": 23456,
+        "addrCd": 1119,
+        "gungu": "마포구",
+        "resNm": "홍대조이월드",
+        "rnum": 19,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    },
+    {
+        "ForNum": 4567,
+        "NatNum": 89012,
+        "addrCd": 1120,
+        "gungu": "서대문구",
+        "resNm": "연희드림파크",
+        "rnum": 20,
+        "sido": "서울특별시",
+        "yyyymm": "202112"
+    }
+]
