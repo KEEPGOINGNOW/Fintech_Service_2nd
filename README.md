@@ -39,3 +39,8 @@
 8. [파이썬_파이썬 서식지정자와 format 메서드 및 f-sting 활용](https://everyonelove.tistory.com/169)
 9. [파이썬_파이썬 if else 조건문과 elif 다중 조건문, 조건표현식](https://everyonelove.tistory.com/171)
 10. [파이썬_파이썬 for 반복문과 enumerate(), continue, break](https://everyonelove.tistory.com/175)
+11. [파이썬 while문과 중첩반복문 활용](https://everyonelove.tistory.com/182)
+12. [파이썬 리스트 표현식, 파일 읽기/쓰기, JSON 파일을 통한 데이터프레임 변환](https://everyonelove.tistory.com/181)
+13. [파이썬 함수 생성과 함수의 매개변수 및 return 값](https://everyonelove.tistory.com/184)
+14. [파이썬의 위치인수, 가변위치인수, 키워드 인수, 가변 키워드 인수 활용](https://everyonelove.tistory.com/185)
+15. [파이썬 람다 표현식과 예외 처리](https://everyonelove.tistory.com/186)
