@@ -44,3 +44,16 @@
 13. [파이썬 함수 생성과 함수의 매개변수 및 return 값](https://everyonelove.tistory.com/184)
 14. [파이썬의 위치인수, 가변위치인수, 키워드 인수, 가변 키워드 인수 활용](https://everyonelove.tistory.com/185)
 15. [파이썬 람다 표현식과 예외 처리](https://everyonelove.tistory.com/186)
+16. [파이썬의 클래스와 클래스 생성 위한 인스턴스 및 메서드 활용](https://everyonelove.tistory.com/188)
+17. [파이썬 생성자와 클래스의 상속, 클래스 및 인스턴스의 속성, 메서드 활용](https://everyonelove.tistory.com/189)
+18. [파이썬의 datetime 모듈과 OS 모듈, 사용자 모듈 생성 및 활용](https://everyonelove.tistory.com/190)
+
+--------
+
+## 4. Data Scraping
+1. [네이버 API 활용 데이터 스크래핑](https://everyonelove.tistory.com/191)
+
+
+
+
+
