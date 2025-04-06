@@ -51,8 +51,9 @@
 --------
 
 ## 4. Data Scraping
-1. [네이버 API 활용 데이터 스크래핑](https://everyonelove.tistory.com/191)
-
+1. [네이버 API 신청 및 네이버 API 활용 데이터 스크래핑](https://everyonelove.tistory.com/191)
+2. [requests 모듈을 사용한 네이버 API 활용 데이터 스크래핑](https://everyonelove.tistory.com/192)
+3. [공공데이터 API 신청 및 공공데이터 API 활용 데이터 스크래핑](https://everyonelove.tistory.com/194)
 
 
 
