@@ -11,26 +11,22 @@ pymysql.install_as_MySQLdb()
 url = 'https://kind.krx.co.kr/corpgeneral/corpList.do?'
 payload = dict(method='searchCorpList',pageIndex=1,currentPageSize=100,orderMode=3,orderStat='D',searchType=13,fiscalYearEnd='all',location='all')
 r = requests.post(url, params=payload)
-print(r.status_code)
 soup = bs(r.content, 'lxml')
 time.sleep(2)
 
 n_data = int(soup.select_one('.info.type-00 em').text.replace(',',''))
-last_page = (n_data//100)+1
+total_page = (n_data//100)+1
 
 td_list = []
 page = 1
 
-for idx, page in enumerate(range(1, last_page+1)):
+for idx, page in enumerate(range(1, total_page+1)):
 
-    print(f"{idx+1} / {last_page} 수집 중", end = '\r')
+    print(f'{page}/{total_page} 작업중', end="\r")
     url = 'https://kind.krx.co.kr/corpgeneral/corpList.do?'
     payload = dict(method='searchCorpList',pageIndex=page,currentPageSize=100,orderMode=3,orderStat='D',searchType=13,fiscalYearEnd='all',location='all')
     r = requests.post(url, params=payload)
     time.sleep(0.2)
-    
-    # print(r.status_code, end='\r')
-    # print(r.url, end='\r')
     soup = bs(r.content, 'lxml')
     
     tbody = soup.select('tbody')
