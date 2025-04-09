@@ -77,7 +77,7 @@ def dbconnect():
     conn = engine.connect()
     return conn
 
-def save_MySQL_table(keyword, result):
+def to_book_db(keyword, result):
     """
     keyword와 df를 입력받아 네이버 도서에서 검색하고 5페이지 결과를
     {검색어 명}_book_info 테이블을 MySQL에 저장 
@@ -85,7 +85,8 @@ def save_MySQL_table(keyword, result):
     conn = dbconnect()
     result.to_sql(f'{keyword}_book_info', con=conn, if_exists='append', index=False)
     conn.close()
-    print(f'{keyword}_book_info 테이블이 MySQL DB에 저장되었습니다.')
+    print(f'{keyword}_book_info 테이블이 MySQL DB에 저장되었습니다.', end='\r')
+    time.sleep(2)
     return
 
 def pagenavigator(driver, num):

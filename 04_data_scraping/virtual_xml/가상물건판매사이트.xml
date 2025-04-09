@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 목록 (1번 ~ 10번)</title>
+    <style>
+        body {
+            font-family: '맑은 고딕', Arial, sans-serif;
+            margin: 40px;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+        }
+        
+        .data-table th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            position: sticky;
+            top: 0;
+        }
+        
+        .data-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .data-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .category-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.9em;
+        }
+        
+        .clothing { background-color: #FFCDD2; }
+        .electronics { background-color: #C8E6C9; }
+        .books { background-color: #BBDEFB; }
+        .toys { background-color: #FFF9C4; }
+        .home-appliances { background-color: #E1BEE7; }
+    </style>
+</head>
+<body>
+    <h2>상품 목록 (1번 ~ 25번)</h2>
+    
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>상품명</th>
+                <th>가격</th>
+                <th>재고</th>
+                <th>총 가치</th>
+                <th>카테고리</th>
+                <th>판매자</th>
+                <th>상품 설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Product 1</td>
+                <td>₩27,841</td>
+                <td>96</td>
+                <td>₩2,670,336</td>
+                <td><span class="category-tag clothing">Clothing</span></td>
+                <td>Seller_1</td>
+                <td>Unique description for Product 1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Product 2</td>
+                <td>₩12,043</td>
+                <td>77</td>
+                <td>₩928,411</td>
+                <td><span class="category-tag home-appliances">Home Appliances</span></td>
+                <td>Seller_2</td>
+                <td>Unique description for Product 2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Product 3</td>
+                <td>₩35,698</td>
+                <td>16</td>
+                <td>₩571,168</td>
+                <td><span class="category-tag clothing">Clothing</span></td>
+                <td>Seller_3</td>
+                <td>Unique description for Product 3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Product 4</td>
+                <td>₩39,764</td>
+                <td>54</td>
+                <td>₩2,146,256</td>
+                <td><span class="category-tag books">Books</span></td>
+                <td>Seller_4</td>
+                <td>Unique description for Product 4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Product 5</td>
+                <td>₩27,691</td>
+                <td>25</td>
+                <td>₩692,275</td>
+                <td><span class="category-tag clothing">Clothing</span></td>
+                <td>Seller_5</td>
+                <td>Unique description for Product 5</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Product 6</td>
+                <td>₩14,749</td>
+                <td>94</td>
+                <td>₩1,386,406</td>
+                <td><span class="category-tag toys">Toys</span></td>
+                <td>Seller_6</td>
+                <td>Unique description for Product 6</td>
+             </tr>
+             <tr>
+                <td>7</td>
+                <td>Product 7</td>
+                <td>₩27,841</td>
+                <td>47</td>
+                <td>₩1,308,527</td>
+                <td><span class="category-tag clothing">Clothing</span></td>
+                <td>Seller_7</td>
+                <td>Unique description for Product 7</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Product 8</td>
+                <td>₩18,215</td>
+                <td>69</td>
+                <td>₩1,256,835</td>
+                <td><span class="category-tag clothing">Clothing</span></td>
+                <td>Seller_8</td>
+                <td>Unique description for Product 8</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Product 9</td>
+                <td>₩28,019</td>
+                <td>77</td>
+                <td>₩2,157,463</td>
+                <td><span class="category-tag toys">Toys</span></td>
+                <td>Seller_9</td>
+                <td>Unique description for Product 9</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Product 10</td>
+                <td>₩10,646</td>
+                <td>54</td>
+                <td>₩574,884</td>
+                <td><span class="category-tag electronics">Electronics</span></td>
+                <td>Seller_10</td>
+                <td>Unique description for Product 10</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Product 11</td>
+                <td>₩25,035</td>
+                <td>29</td>
+                <td>₩726,015</td>
+                <td><span class="category-tag toys">Toys</span></td>
+                <td>Seller_11</td>
+                <td>Unique description for Product 11</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Product 12</td>
+                <td>₩8,843</td>
+                <td>40</td>
+                <td>₩353,720</td>
+                <td><span class="category-tag books">Books</span></td>
+                <td>Seller_12</td>
+                <td>Unique description for Product 12</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Product 13</td>
+                <td>₩28,019</td>
+                <td>77</td>
+                <td>₩2,157,463</td>
+                <td><span class="category-tag toys">Toys</span></td>
+                <td>Seller_13</td>
+                <td>Unique description for Product 13</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Product 14</td>
+                <td>₩10,646</td>
+                <td>54</td>
+                <td>₩574,884</td>
+                <td><span class="category-tag home-appliances">Home Appliances</span></td>
+                <td>Seller_14</td>
+                <td>Unique description for Product 14</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Product 15</td>
+                <td>₩25,035</td>
+                <td>29</td>
+                <td>₩726,015</td>
+                <td><span class="category-tag toys">Toys</span></td>
+                <td>Seller_15</td>
+                <td>Unique description for Product 15</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Product 16</td>
+                <td>₩8,843</td>
+                <td>40</td>
+                <td>₩353,720</td>
+                <td><span class="category-tag books">Books</span></td>
+                <td>Seller_16</td>
+                <td>Unique description for Product 16</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Product 17</td>
+                <td>₩25,950</td>
+                <td>29</td>
+                <td>₩752,550</td>
+                <td><span class="category-tag toys">Toys</span></td>
+                <td>Seller_17</td>
+                <td>Unique description for Product 17</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Product 18</td>
+                <td>₩5,583</td>
+                <td>20</td>
+                <td>₩111,660</td>
+                <td><span class="category-tag electronics">Electronics</span></td>
+                <td>Seller_18</td>
+                <td>Unique description for Product 18</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Product 19</td>
+                <td>₩31,501</td>
+                <td>68</td>
+                <td>₩2,142,068</td>
+                <td><span class="category-tag books">Books</span></td>
+                <td>Seller_19</td>
+                <td>Unique description for Product 19</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Product 20</td>
+                <td>₩26,380</td>
+                <td>63</td>
+                <td>₩1,661,940</td>
+                <td><span class="category-tag clothing">Clothing</span></td>
+                <td>Seller_20</td>
+                <td>Unique description for Product 20</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>Product 21</td>
+                <td>₩15,200</td>
+                <td>45</td>
+                <td>₩684,000</td>
+                <td><span class="category-tag electronics">Electronics</span></td>
+                <td>Seller_21</td>
+                <td>Unique description for Product 21</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Product 22</td>
+                <td>₩18,750</td>
+                <td>30</td>
+                <td>₩562,500</td>
+                <td><span class="category-tag toys">Toys</span></td>
+                <td>Seller_22</td>
+                <td>Unique description for Product 22</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Product 23</td>
+                <td>₩22,100</td>
+                <td>50</td>
+                <td>₩1,105,000</td>
+                <td><span class="category-tag home-appliances">Home Appliances</span></td>
+                <td>Seller_23</td>
+                <td>Unique description for Product 23</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>Product 24</td>
+                <td>₩19,500</td>
+                <td>35</td>
+                <td>₩682,500</td>
+                <td><span class="category-tag books">Books</span></td>
+                <td>Seller_24</td>
+                <td>Unique description for Product 24</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Product 25</td>
+                <td>₩12,800</td>
+                <td>40</td>
+                <td>₩512,000</td>
+                <td><span class="category-tag electronics">Electronics</span></td>
+                <td>Seller_25</td>
+                <td>Unique description for Product 25</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
