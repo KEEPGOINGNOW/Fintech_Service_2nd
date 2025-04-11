@@ -29,10 +29,9 @@ def dbconnect():
     conn = engine.connect()
     return conn
 
-def to_exdb(df):
+def to_exdb_today(df, today):
     conn = dbconnect()
     time.sleep(1)
-    df.to_sql(f'exchange_rate', con=conn, if_exists='append', index=False)
+    df.to_sql(f'exchange_rate_{today.month}_{today.day}', con=conn, if_exists='append', index=False)
     conn.close()
     return
-
