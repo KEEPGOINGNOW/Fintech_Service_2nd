@@ -59,5 +59,14 @@ required_columns = ['date', '통화', '현찰_사실_때_환율', '현찰_사실
                 '미화_환산율']
 df = df[required_columns]
 
-to_exdb_today(df, today)
-print(f"{today.date()} 기준 {len(df)}개의 환율 데이터프레임을 MySQL DB에 테이블로 저장하였습니다.", end='\r')
+try:
+    to_exdb_today(df, today)
+    print(f"{today.date()} 기준 {len(df)}개의 환율 데이터프레임을 MySQL DB에 테이블로 저장하였습니다.")
+    driver.quit()
+    print("Browser closed successfully.")
+except Exception as e:
+    print(f"Error occurred: {str(e)}")
+    print(traceback.format_exc())
+    driver.quit()
+    print("Browser closed after error.")
+
