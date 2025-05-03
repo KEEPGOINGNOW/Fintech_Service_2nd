@@ -54,6 +54,30 @@
 1. [네이버 API 신청 및 네이버 API 활용 데이터 스크래핑](https://everyonelove.tistory.com/191)
 2. [requests 모듈을 사용한 네이버 API 활용 데이터 스크래핑](https://everyonelove.tistory.com/192)
 3. [공공데이터 API 신청 및 공공데이터 API 활용 데이터 스크래핑](https://everyonelove.tistory.com/194)
+4. [XML 데이터 스크래핑 및 공공데이터 API 활용 XML 데이터 스크래핑](https://everyonelove.tistory.com/195)
+
+------------
+
+## 5. Data Analysis
+1. [파이썬의 Numpy와 Numpy 연산](https://everyonelove.tistory.com/198)
+2. [파이썬의 Numpy 메서드와 활용](https://everyonelove.tistory.com/199)
+3. [파이썬의 Pandas와 파일 불러오기 및 저장하기](https://everyonelove.tistory.com/200)
+4. [타이타닉 데이터셋 불러와서 Pandas 기능 활용](https://everyonelove.tistory.com/201)
+5. [파이썬의 Pandas 기능 활용(2)](https://everyonelove.tistory.com/202)
+6. [파이썬의 데이터프레임 합치기와 중복된 행 제거](https://everyonelove.tistory.com/203)
+7. [파이썬 Matplotlib를 활용한 그래프 생성](https://everyonelove.tistory.com/204)
+8. [파이썬 Matplotlib를 활용한 라인/산점도/히스토그램/막대 그래프 생성](https://everyonelove.tistory.com/205)
+9. [데이터 분석 과정의 결측치 처리](https://everyonelove.tistory.com/206)
+10. [중앙값과 최빈값을 활용한 결측치 대체 및 scikit-learn 활용 결측치 대체](https://everyonelove.tistory.com/207)
+11. [파이썬의 데이터의 종류와 이상치(outlier) 탐지 및 처리](https://everyonelove.tistory.com/208)
+12. [타이타닉 데이터셋 EDA(결측치 / 이상치 탐색 및 처리)](https://everyonelove.tistory.com/209)
+13. [타이타닉 데이터셋 EDA(연관 있는 컬럼과 생존율 관계 파악)](https://everyonelove.tistory.com/210)
+14. [타이타닉 데이터셋 EDA(Feature Engineering) 및 모델 적용하여 성능 확인](https://everyonelove.tistory.com/211)
+
+
+
+
+
 
 
 
