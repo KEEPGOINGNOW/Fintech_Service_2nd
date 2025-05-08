@@ -76,3 +76,4 @@ for date in date_list:
     
     to_exdb(df)
     print(f"{date.strftime('%Y-%m-%d')} 기준 환율 데이터 수집 완료", end='\r')
+

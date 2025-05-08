@@ -2,7 +2,6 @@ import os
 import requests
 import time
 import pandas as pd
-import cryptography
 from bs4 import BeautifulSoup as bs
 from datetime import datetime
 from sqlalchemy import create_engine, text
@@ -90,34 +89,17 @@ for idx, page in enumerate(range(1, total_page+1)):
 #컬럼명 지정
 company_info_df = pd.concat(td_list,ignore_index=True)
 columns = soup.select_one('table')['summary'].split(', ')
-columns.insert(0,'주식 종목')
-columns.insert(2, '종목 코드')
+columns.insert(0,'증권종류')
+columns.insert(2, '종목코드')
 company_info_df.columns = columns
 
 print(f"\n총 {len(company_info_df)}개 데이터 수집")
 # display(company_info_df)
 
-
-# to_csv 파일 저장할 파일 생성
-if not os.path.exists('./scraping_results'):
-    os.mkdir('scraping_results')
-
-# to_csv로 저장하기
-today = datetime.now()
-today = f"{today.year}_{today.month:02d}_{today.day:02d}"
-company_info_df.to_csv(f"./scraping_results/상장기업정보_{today}기준.csv", encoding="utf-8", index=False)
-print(f"./scraping_results/상장기업정보_{today}기준.csv 파일이 저장되었습니다.")
-
-# engine = create_engine('mysql+pymyslq://user_id:password@ip주소:port/데이터베이스 이름')
-# localhost = 127.0.0.1
-engine = create_engine('mysql+pymysql://root:1234@localhost:3306/stock_info')
-
-# engine.connect create_engine에 있는 정보로 DB접속
+# mysql
+engine = create_engine('mysql+pymysql://root:1234@127.0.0.1:3306/korean_stock')
 conn = engine.connect()
-
-# 데이터프레임을 DB에 저장하기
-# 데이터프레임명.to_sql('테이블명')
-company_info_df.to_sql(f"stock_company_info_{today}", con=conn, if_exists='replace', index=False)
-print(f"stock_company_info_{today}이 MySQL Database에 저장되었습니다.")
+company_info_df.to_sql("company_info", con=conn, if_exists='replace', index=False)
+print(f"company_info 테이블이 MySQL Database의 korean_stock에 저장되었습니다.")
 conn.close()
 
