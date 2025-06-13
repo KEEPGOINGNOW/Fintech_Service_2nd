@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오픈소스 라이선스 가이드</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The application is structured into three main thematic sections to guide the user from broad understanding to practical application, which is more intuitive than the linear structure of the source document. 1) '라이선스 비교 분석' (License Comparison Analysis): An interactive dashboard allowing users to select and directly compare licenses, addressing the primary user need of understanding obligations. 2) '라이선스 스펙트럼' (License Spectrum): A visual chart to help users mentally map the landscape from permissive to strong copyleft. 3) '오픈소스 활용 실전 가이드' (Practical Guide to Using Open Source): A step-by-step guide on how to identify and manage licenses in a real-world project. This user-centric flow enhances learning and usability. -->
+    <!-- Visualization & Content Choices: 1) License Comparison: (Goal: Compare) A dynamic HTML content block is used instead of a static table. (Interaction: User clicks a license button, and JS updates the displayed obligations and permissions). This provides immediate feedback and simplifies comparison. 2) License Spectrum: (Goal: Organize/Change) An interactive horizontal bar chart from Chart.js (Canvas) visualizes the permissive-to-copyleft spectrum. (Interaction: Clicks on the chart can filter licenses, connecting the conceptual model to the detailed view). 3) Practical Guide: (Goal: Inform) A tabbed HTML/CSS component breaks down the process into manageable steps (Check Files, Check Headers, Use Tools). (Interaction: JS-powered tabs keep the UI clean and focused). This approach ensures all key information from the report is presented in an engaging, interactive format without using SVG or Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 200px;
+            max-height: 250px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 120px;
+            }
+        }
+        .tab-button.active {
+            border-color: #3b82f6;
+            color: #3b82f6;
+            background-color: #eff6ff;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-7xl">
+
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-2">오픈소스 라이선스 완전 정복</h1>
+            <p class="text-lg text-slate-600">복잡한 오픈소스 라이선스를 한눈에 이해하고 비교해보세요.</p>
+        </header>
+
+        <nav class="flex justify-center space-x-4 mb-12 border-b pb-4">
+            <a href="#compare" class="text-slate-600 hover:text-blue-600 font-semibold">라이선스 비교</a>
+            <a href="#spectrum" class="text-slate-600 hover:text-blue-600 font-semibold">라이선스 스펙트럼</a>
+            <a href="#guide" class="text-slate-600 hover:text-blue-600 font-semibold">활용 가이드</a>
+            <a href="#concepts" class="text-slate-600 hover:text-blue-600 font-semibold">핵심 개념</a>
+        </nav>
+
+        <main>
+            <!-- Section 1: Interactive License Comparison -->
+            <section id="compare" class="mb-16">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-slate-900">라이선스 비교 분석</h2>
+                    <p class="mt-2 text-slate-600">알고 싶은 라이선스를 선택하여 주요 특징과 의무사항을 확인하세요.</p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <!-- License Selector -->
+                    <div class="lg:w-1/4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                            <h3 class="font-bold text-lg mb-4 border-b pb-2 text-slate-700">라이선스 선택</h3>
+                            <div id="license-selector" class="flex flex-row flex-wrap lg:flex-col gap-2"></div>
+                        </div>
+                    </div>
+
+                    <!-- License Details Display -->
+                    <div class="lg:w-3/4">
+                        <div id="license-details" class="bg-white p-6 rounded-lg shadow-sm border border-slate-200 transition-all duration-300 min-h-[400px]">
+                            <!-- Dynamic content will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: License Spectrum Chart -->
+            <section id="spectrum" class="mb-16">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-slate-900">라이선스 스펙트럼</h2>
+                    <p class="mt-2 text-slate-600">라이선스는 허용 범위에 따라 관대함(Permissive)부터 강력함(Strong Copyleft)까지 다양하게 분류됩니다. 각 스펙트럼을 클릭하여 해당하는 라이선스들을 확인해보세요.</p>
+                </div>
+                <div class="bg-white p-4 sm:p-6 rounded-lg shadow-sm border border-slate-200">
+                    <div class="chart-container">
+                        <canvas id="licenseSpectrumChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 3: Practical Guide -->
+            <section id="guide" class="mb-16">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-slate-900">오픈소스 활용 실전 가이드</h2>
+                    <p class="mt-2 text-slate-600">프로젝트에서 오픈소스를 올바르게 사용하기 위한 실용적인 방법을 단계별로 알아보세요.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
+                    <div id="tabs-container" class="mb-4 border-b border-slate-200 flex flex-wrap">
+                        <button data-tab="tab1" class="tab-button text-sm sm:text-base py-2 px-4 border-b-2 font-medium text-slate-500 hover:bg-slate-100">1. 라이선스 파일 확인</button>
+                        <button data-tab="tab2" class="tab-button text-sm sm:text-base py-2 px-4 border-b-2 font-medium text-slate-500 hover:bg-slate-100">2. 소스코드 헤더 확인</button>
+                        <button data-tab="tab3" class="tab-button text-sm sm:text-base py-2 px-4 border-b-2 font-medium text-slate-500 hover:bg-slate-100">3. 자동화 도구 활용</button>
+                        <button data-tab="tab4" class="tab-button text-sm sm:text-base py-2 px-4 border-b-2 font-medium text-slate-500 hover:bg-slate-100">4. 코드 관리 방안</button>
+                    </div>
+                    <div id="tabs-content" class="mt-4">
+                        <!-- Tab Content will be injected here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Key Concepts -->
+            <section id="concepts" class="mb-16">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-slate-900">핵심 개념 바로알기</h2>
+                    <p class="mt-2 text-slate-600">라이선스를 이해하는 데 필요한 기본적인 용어들을 정리했습니다.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-sm border border-slate-200 p-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                   <div class="p-4 rounded-md bg-slate-50">
+                        <dt class="font-bold text-lg text-slate-800">저작권 (Copyright)</dt>
+                        <dd class="text-slate-600 mt-1">창작물을 만든 사람이 자신의 창작물에 대해 갖는 배타적인 법적 권리입니다. 복제, 배포, 수정 등을 통제할 수 있습니다.</dd>
+                    </div>
+                    <div class="p-4 rounded-md bg-slate-50">
+                        <dt class="font-bold text-lg text-slate-800">오픈소스 (Open Source)</dt>
+                        <dd class="text-slate-600 mt-1">소스코드가 공개되어 누구나 자유롭게 사용, 수정, 배포할 수 있는 소프트웨어를 의미합니다. 하지만 '무료'나 '자유'가 특정 조건(라이선스) 없이 허용되는 것은 아닙니다.</dd>
+                    </div>
+                    <div class="p-4 rounded-md bg-slate-50">
+                        <dt class="font-bold text-lg text-slate-800">라이선스 (License)</dt>
+                        <dd class="text-slate-600 mt-1">저작권자가 다른 사람에게 자신의 저작물을 사용할 수 있는 권한과 조건을 명시한 '사용 허가 계약'입니다. 오픈소스 사용 시 반드시 준수해야 합니다.</dd>
+                    </div>
+                    <div class="p-4 rounded-md bg-slate-50">
+                        <dt class="font-bold text-lg text-slate-800">카피레프트 (Copyleft)</dt>
+                        <dd class="text-slate-600 mt-1">저작권을 기반으로, 2차적 저작물(수정/결합한 코드)도 원 저작물과 동일한 라이선스로 배포해야 한다는 조건을 부여하는 방식입니다. 정보의 공유를 강제하는 역할을 합니다.</dd>
+                    </div>
+                    <div class="p-4 rounded-md bg-slate-50">
+                        <dt class="font-bold text-lg text-slate-800">소스코드 공개 의무</dt>
+                        <dd class="text-slate-600 mt-1">특정 라이선스(주로 카피레프트 계열)가 적용된 코드를 사용하여 프로그램을 배포할 때, 사용된 소스코드 전체 또는 일부를 사용자에게 제공해야 할 의무입니다.</dd>
+                    </div>
+                    <div class="p-4 rounded-md bg-slate-50">
+                        <dt class="font-bold text-lg text-slate-800">고지 의무</dt>
+                        <dd class="text-slate-600 mt-1">사용한 오픈소스의 원 저작자, 출처, 라이선스 원문 등을 최종 사용자에게 명확히 알려야 할 의무입니다. 대부분의 라이선스가 이 의무를 포함합니다.</dd>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="text-center pt-8 mt-12 border-t border-slate-200">
+            <p class="text-sm text-slate-500">본 페이지는 제공된 문서를 기반으로 생성된 인터랙티브 요약본입니다.</p>
+        </footer>
+    </div>
+
+<script>
+const licenseData = [
+    { name: 'MIT', type: 'Permissive', permissions: ['상업적 이용', '수정', '배포', '사적 이용', '서브라이선싱'], obligations: ['라이선스 및 저작권 고지'], description: '가장 관대한 라이선스 중 하나로, 제약 조건이 거의 없어 많은 프로젝트에서 사용됩니다.' },
+    { name: 'Apache 2.0', type: 'Permissive', permissions: ['상업적 이용', '수정', '배포', '사적 이용', '서브라이선싱', '특허권 보장'], obligations: ['라이선스 및 저작권 고지', '수정사항 고지', '상표권 사용 불가'], description: 'MIT와 유사하게 허용 범위가 넓지만, 특허권 관련 조항과 수정사항 고지 의무가 추가된 라이선스입니다.' },
+    { name: 'BSD', type: 'Permissive', permissions: ['상업적 이용', '수정', '배포', '사적 이용'], obligations: ['라이선스 및 저작권 고지'], description: "MIT와 매우 유사하며, 일부 버전에서는 '홍보 조항'이 있을 수 있습니다. 제약이 적어 널리 쓰입니다." },
+    { name: 'MPL 2.0', type: 'Weak Copyleft', permissions: ['상업적 이용', '수정', '배포', '사적 이용', '서브라이선싱'], obligations: ['라이선스 및 저작권 고지', 'MPL 코드 수정 시 소스코드 공개 (파일 단위)'], description: '수정한 MPL 코드 파일에 대해서만 소스코드 공개 의무가 적용됩니다. 다른 파일과 결합하여 만든 최종 결과물 전체를 공개할 필요는 없습니다.' },
+    { name: 'LGPL', type: 'Weak Copyleft', permissions: ['상업적 이용', '배포', '사적 이용'], obligations: ['라이선스 및 저작권 고지', 'LGPL 라이브러리 수정 시 소스코드 공개', '동적 링크 허용'], description: '주로 라이브러리에 사용됩니다. LGPL 코드를 수정하지 않고 라이브러리 형태로 가져다 쓰는 경우, 전체 소스코드를 공개할 의무가 없습니다.' },
+    { name: 'GPL', type: 'Strong Copyleft', permissions: ['상업적 이용', '수정', '배포', '사적 이용'], obligations: ['라이선스 및 저작권 고지', '전체 소스코드 공개 의무', '동일 라이선스 적용 (GPL)'], description: '가장 대표적인 카피레프트 라이선스입니다. GPL 코드를 일부라도 사용해 만든 소프트웨어를 배포할 경우, 전체 소스코드를 GPL로 공개해야 합니다.' },
+    { name: 'AGPL', type: 'Strong Copyleft', permissions: ['상업적 이용', '수정', '배포', '사적 이용'], obligations: ['라이선스 및 저작권 고지', '전체 소스코드 공개 의무', '동일 라이선스 적용 (AGPL)', '네트워크 서비스 시 소스코드 공개'], description: 'GPL의 강화 버전으로, 소프트웨어를 배포하지 않고 네트워크를 통해 서비스만 제공하는 경우에도 사용자에게 전체 소스코드를 공개해야 합니다.' }
+];
+
+const guideContent = {
+    tab1: {
+        title: '1. 라이선스 파일 확인',
+        content: `대부분의 오픈소스 프로젝트는 루트 디렉토리에 라이선스 정보가 담긴 파일을 포함하고 있습니다. 이 파일들을 가장 먼저 확인해야 합니다.<br><br>
+        <ul class="list-disc list-inside space-y-2 text-slate-700">
+            <li><code class="bg-slate-200 text-sm rounded px-2 py-1">LICENSE</code>, <code class="bg-slate-200 text-sm rounded px-2 py-1">LICENSE.txt</code>: 라이선스 원문이 들어있는 가장 일반적인 파일입니다.</li>
+            <li><code class="bg-slate-200 text-sm rounded px-2 py-1">COPYING</code>: GPL 계열 라이선스에서 주로 사용하는 파일명입니다.</li>
+            <li><code class="bg-slate-200 text-sm rounded px-2 py-1">NOTICE</code>: 라이선스 고지 의무와 관련된 추가 정보를 담고 있습니다. (주로 Apache 라이선스)</li>
+            <li><code class="bg-slate-200 text-sm rounded px-2 py-1">README.md</code>: 프로젝트 설명 파일로, 라이선스 정보가 간략하게 기재되어 있기도 합니다.</li>
+        </ul>`
+    },
+    tab2: {
+        title: '2. 소스코드 헤더 확인',
+        content: `개별 소스코드 파일의 상단 주석(헤더)에 라이선스 정보가 명시된 경우가 많습니다. 파일 단위로 다른 라이선스가 적용될 수 있으므로, 주요 파일들의 헤더를 확인하는 것이 중요합니다.<br><br>
+        <p class="mb-2 text-slate-700">예시 (Apache License 2.0):</p>
+        <pre class="bg-slate-800 text-white p-4 rounded-md text-sm overflow-x-auto"><code>/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to you under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */</code></pre>`
+    },
+    tab3: {
+        title: '3. 자동화 도구 활용',
+        content: `프로젝트의 규모가 크거나 의존하는 오픈소스가 많을 경우, 수동으로 모든 라이선스를 확인하기 어렵습니다. 이때 라이선스 검사 자동화 도구를 사용하면 효율적입니다.<br><br>
+        <p class="mb-2 text-slate-700">대표적인 도구들:</p>
+        <ul class="list-disc list-inside space-y-2">
+            <li><strong>FOSSID:</strong> 코드 스니펫 레벨까지 정밀하게 코드를 스캔하여 라이선스 및 보안 취약점을 검출하는 상용 도구입니다.</li>
+            <li><strong>Black Duck:</strong> 프로젝트의 의존성을 분석하여 사용된 오픈소스의 라이선스, 버전, 보안 취약점 등을 식별하는 상용 도구입니다.</li>
+            <li><strong>FOSSA:</strong> 개발 파이프라인에 통합하여 라이선스 규정 준수 및 취약점 관리를 자동화하는 도구입니다.</li>
+            <li><strong>ORCA:</strong> 국내에서 개발된 오픈소스 라이선스 관리 도구입니다.</li>
+        </ul>`
+    },
+    tab4: {
+        title: '4. 올바른 코드 관리 방안',
+        content: `자체 개발한 코드와 외부 오픈소스 코드를 명확히 분리하여 관리하는 것이 중요합니다. 이는 라이선스 의무사항 적용 범위를 명확히 하고, 향후 코드 관리를 용이하게 합니다.<br><br>
+        <p class="mb-2 text-slate-700">권장 디렉토리 구조 예시:</p>
+        <div class="bg-slate-100 p-4 rounded-md">
+            <div class="flex items-center mb-2">
+                <span class="mr-2">📁</span><span>MyProject/</span>
+            </div>
+            <div class="ml-6 flex items-center mb-2">
+                <span class="mr-2">📁</span><span>src/ (자체 개발 소스)</span>
+            </div>
+            <div class="ml-6 flex items-center">
+                <span class="mr-2 text-blue-600 font-bold">📁</span><span class="text-blue-600 font-bold">external/ (외부 오픈소스)</span>
+            </div>
+            <div class="ml-12 flex items-center mb-2">
+                <span class="mr-2">📁</span><span>library_A/ (MIT License)</span>
+            </div>
+            <div class="ml-12 flex items-center">
+                <span class="mr-2">📁</span><span>library_B/ (Apache 2.0 License)</span>
+            </div>
+        </div>
+        <p class="mt-4 text-slate-700">위와 같이 <code class="bg-slate-200 text-sm rounded px-2 py-1">/external</code> 이나 <code class="bg-slate-200 text-sm rounded px-2 py-1">/third_party</code> 와 같은 별도 디렉토리에 외부 코드를 위치시켜 관리하는 것이 좋습니다.</p>`
+    }
+};
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const licenseSelector = document.getElementById('license-selector');
+    const licenseDetails = document.getElementById('license-details');
+    
+    // Populate license selector
+    licenseData.forEach(license => {
+        const button = document.createElement('button');
+        button.textContent = license.name;
+        button.className = `w-full text-left p-2 rounded-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200 license-btn`;
+        button.dataset.license = license.name;
+        licenseSelector.appendChild(button);
+    });
+
+    // Function to update license details
+    const updateLicenseInfo = (licenseName) => {
+        const license = licenseData.find(l => l.name === licenseName);
+        if (!license) return;
+
+        licenseDetails.innerHTML = `
+            <div class="flex justify-between items-start">
+                <h3 class="text-2xl font-bold text-slate-900">${license.name}</h3>
+                <span class="px-3 py-1 text-sm font-semibold rounded-full ${
+                    license.type === 'Permissive' ? 'bg-green-100 text-green-800' :
+                    license.type === 'Weak Copyleft' ? 'bg-yellow-100 text-yellow-800' :
+                    'bg-red-100 text-red-800'
+                }">${license.type}</span>
+            </div>
+            <p class="mt-2 text-slate-600">${license.description}</p>
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-bold text-lg mb-2 text-slate-800">✅ 주요 허용 권한</h4>
+                    <ul class="space-y-2">
+                        ${license.permissions.map(p => `<li class="flex items-start"><span class="text-green-500 mr-2 mt-1">✓</span><span class="text-slate-700">${p}</span></li>`).join('')}
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-2 text-slate-800">⚠️ 주요 준수 의무</h4>
+                    <ul class="space-y-2">
+                        ${license.obligations.map(o => `<li class="flex items-start"><span class="text-orange-500 mr-2 mt-1">!</span><span class="text-slate-700">${o}</span></li>`).join('')}
+                    </ul>
+                </div>
+            </div>
+        `;
+
+        document.querySelectorAll('.license-btn').forEach(btn => {
+            if (btn.dataset.license === licenseName) {
+                btn.classList.add('bg-blue-100', 'text-blue-700', 'font-bold');
+            } else {
+                btn.classList.remove('bg-blue-100', 'text-blue-700', 'font-bold');
+            }
+        });
+    };
+
+    // Event listener for license selection
+    licenseSelector.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON') {
+            updateLicenseInfo(e.target.dataset.license);
+        }
+    });
+
+    // Initial load
+    updateLicenseInfo('MIT');
+
+    // Chart.js Spectrum Chart
+    const ctx = document.getElementById('licenseSpectrumChart').getContext('2d');
+    const spectrumChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Permissive', 'Weak Copyleft', 'Strong Copyleft'],
+            datasets: [{
+                label: '라이선스 종류',
+                data: [3, 2, 2],
+                backgroundColor: [
+                    'rgba(74, 222, 128, 0.6)',
+                    'rgba(250, 204, 21, 0.6)',
+                    'rgba(248, 113, 113, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(34, 197, 94, 1)',
+                    'rgba(234, 179, 8, 1)',
+                    'rgba(239, 68, 68, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                             const type = context.label;
+                             const licenses = licenseData.filter(l => l.type === type).map(l => l.name).join(', ');
+                             return `${type}: ${licenses}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    display: false,
+                },
+                y: {
+                    ticks: {
+                        font: {
+                            size: 14,
+                            weight: 'bold'
+                        }
+                    }
+                }
+            },
+            onClick: (e, elements) => {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const type = spectrumChart.data.labels[index];
+                    const licensesOfType = licenseData.filter(l => l.type === type);
+                    
+                    const selector = document.getElementById('license-selector');
+                    selector.innerHTML = ''; // Clear current buttons
+                    
+                    licensesOfType.forEach(license => {
+                        const button = document.createElement('button');
+                        button.textContent = license.name;
+                        button.className = `w-full text-left p-2 rounded-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200 license-btn`;
+                        button.dataset.license = license.name;
+                        selector.appendChild(button);
+                    });
+                    
+                    if (licensesOfType.length > 0) {
+                        updateLicenseInfo(licensesOfType[0].name);
+                        document.querySelector(`[data-license="${licensesOfType[0].name}"]`).scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            }
+        }
+    });
+
+    // Tabs for practical guide
+    const tabsContainer = document.getElementById('tabs-container');
+    const tabsContent = document.getElementById('tabs-content');
+
+    const updateTabContent = (tabId) => {
+        const tabData = guideContent[tabId];
+        tabsContent.innerHTML = `
+            <h3 class="font-bold text-xl mb-3 text-slate-800">${tabData.title}</h3>
+            <div class="prose prose-slate max-w-none">${tabData.content}</div>
+        `;
+
+        document.querySelectorAll('.tab-button').forEach(button => {
+            if (button.dataset.tab === tabId) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+    };
+    
+    tabsContainer.addEventListener('click', (e) => {
+        if(e.target.classList.contains('tab-button')) {
+            updateTabContent(e.target.dataset.tab);
+        }
+    });
+
+    // Initial tab load
+    updateTabContent('tab1');
+});
+</script>
+</body>
+</html>
